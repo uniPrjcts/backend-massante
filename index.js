@@ -15,18 +15,13 @@ dotenv.config();
 // Conexão inicial a database no mongo
 const connect = async ()=> {
     try {
-        await mongoose.connect(process.env.MONGO);
+        await mongoose.connect(process.env.MONGO, {
+            serverSelectionTimeoutMS: 60000});
         console.log("Conectado ao Mongo");
     } catch (error) {
         throw error;
     }
 };
-
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 60000,
-});
 
 const corsOptions = {
     origin: ["*", "'https://backend-massante.onrender.com'"],
