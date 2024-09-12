@@ -22,13 +22,19 @@ const connect = async ()=> {
     }
 };
 
+mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 60000,
+});
+
 const corsOptions = {
     origin: ["*", "'https://backend-massante.onrender.com'"],
     credentials: true,
     optionsSuccessStatus: 200
 };
 
-  app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // Middlewares
 app.use(cookieParser());
