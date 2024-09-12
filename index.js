@@ -24,7 +24,7 @@ const connect = async ()=> {
 };
 
 const corsOptions = {
-    origin: ["*", "'https://backend-massante.onrender.com'"],
+    origin: ["*", "https://backend-massante.onrender.com", "https://fronthotel.onrender.com"],
     credentials: true,
     optionsSuccessStatus: 200
 };
